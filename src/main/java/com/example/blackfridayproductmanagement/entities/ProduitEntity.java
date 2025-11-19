@@ -9,18 +9,18 @@ import java.math.BigDecimal;
 public class ProduitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // [cite: 25]
+    private Long id;
 
-    private String nomCommercial; // [cite: 26]
+    private String nomCommercial;
 
     @Enumerated(EnumType.STRING)
-    private TypeProduit type; // [cite: 27]
+    private TypeProduit type;
 
-    private BigDecimal prixAchat; // [cite: 28]
-    private BigDecimal prixVenteInitial; // [cite: 29]
-    private String description; // [cite: 30]
+    private BigDecimal prixAchat;
+    private BigDecimal prixVenteInitial;
+    private String description;
 
-    // Constructeurs, Getters et Setters (Génère-les avec IntelliJ : Alt+Insert)
+
     public void Produit() {}
 
     public void Produit(String nomCommercial, TypeProduit type, BigDecimal prixAchat, BigDecimal prixVenteInitial, String description) {

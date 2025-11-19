@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produits") // Définit la racine de l'URL [cite: 36]
+@RequestMapping("/produits")
 public class ProduitController {
 
     @Autowired

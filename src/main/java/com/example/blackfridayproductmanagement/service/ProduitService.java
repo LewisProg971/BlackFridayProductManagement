@@ -18,7 +18,6 @@ public class ProduitService {
     @Autowired
     private ProduitRepository repository;
 
-    // CRUD Basiques
     public ProduitEntity creerProduit(ProduitEntity p) {
         return repository.save(p);
     }
@@ -31,17 +30,15 @@ public class ProduitService {
         repository.deleteById(id);
     }
 
-    // Logique Black Friday [cite: 38]
+
     public List<ProduitBlackFridayDTO> getProduitsBlackFriday() {
         List<ProduitEntity> produits = repository.findAll();
 
         return produits.stream().map(p -> {
             BigDecimal remise = getPourcentageRemise(p.getType());
-            // Formule : Prix - (Prix * Remise)
             BigDecimal montantRemise = p.getPrixVenteInitial().multiply(remise);
             BigDecimal prixFinal = p.getPrixVenteInitial().subtract(montantRemise);
 
-            // Arrondi à 2 décimales
             prixFinal = prixFinal.setScale(2, RoundingMode.HALF_UP);
 
             return new ProduitBlackFridayDTO(
@@ -55,7 +52,6 @@ public class ProduitService {
     }
 
     private BigDecimal getPourcentageRemise(TypeProduit type) {
-        // Définition des remises [cite: 40]
         switch (type) {
             case HIGH_TECH: return new BigDecimal("0.15");
             case LIVRE: return new BigDecimal("0.30");

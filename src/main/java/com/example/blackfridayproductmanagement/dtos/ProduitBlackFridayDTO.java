@@ -9,7 +9,7 @@ public class ProduitBlackFridayDTO {
     private String nom;
     private TypeProduit type;
     private BigDecimal prixInitial;
-    private BigDecimal prixFinal; // Le prix calculé
+    private BigDecimal prixFinal;
 
     // Constructeur
     public ProduitBlackFridayDTO(Long id, String nom, TypeProduit type, BigDecimal prixInitial, BigDecimal prixFinal) {
